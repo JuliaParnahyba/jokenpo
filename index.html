@@ -5,14 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Jokenpô | Pedra, Papel e Tesoura</title>
 
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
     <style>
       * {
         font-family: Helvetica Neue, Helvetica, Arial;
         font-weight: 400;
         cursor: default;
-      }
-
-      #principal {
       }
 
       #título {
@@ -68,8 +67,10 @@
       #computador #computador-escolha {
         list-style: none;
         text-align: center;
+        justify-content: center;
         margin: 20px 0 0 0;
         padding: 0;
+        display: flex;
       }
       #jogador #jogador-escolha li,
       #computador #computador-escolha li {
@@ -86,9 +87,11 @@
         opacity: 1;
       }
 
-      #jogador #jogador-escolha img,
-      #computador #computador-escolha img {
-        max-width: 80px;
+      #jogador #jogador-escolha div,
+      #computador #computador-escolha div {
+        font-size: 80px;
+        color: black;
+        font-weight: 500;
       }
 
       #versus {
@@ -110,6 +113,14 @@
         padding: 20px;
         margin: 15px 0;
       }
+
+      #reiniciar {
+        font-size: 12px;
+        font-weight: 600;
+        color: gray;
+        text-align: center;
+        margin: -12px 0;
+      }
     </style>
   </head>
   <body>
@@ -122,13 +133,19 @@
           <span id="jogador-pontos">0</span>
           <ul id="jogador-escolha">
             <li>
-              <a id="jogador-escolha-1"><img src="/img/pedra.png" /></a>
+              <a id="jogador-escolha-1">
+                <div class="icon-hand-stone"></div>
+              </a>
             </li>
             <li>
-              <a id="jogador-escolha-2"><img src="/img/papel.png" /></a>
+              <a id="jogador-escolha-2">
+                <div class="icon-hand-paper"></div>
+              </a>
             </li>
             <li>
-              <a id="jogador-escolha-3"><img src="/img/tesoura.png" /></a>
+              <a id="jogador-escolha-3">
+                <div class="icon-hand-scissors"></div>
+              </a>
             </li>
           </ul>
         </div>
@@ -140,19 +157,26 @@
           <span id="computador-pontos">0</span>
           <ul id="computador-escolha">
             <li>
-              <a id="computador-escolha-1"><img src="/img/pedra.png" /></a>
+              <a id="computador-escolha-1">
+                <div class="icon-hand-stone"></div>
+              </a>
             </li>
             <li>
-              <a id="computador-escolha-2"><img src="/img/papel.png" /></a>
+              <a id="computador-escolha-2">
+                <div class="icon-hand-paper"></div>
+              </a>
             </li>
             <li>
-              <a id="computador-escolha-3"><img src="/img/tesoura.png" /></a>
+              <a id="computador-escolha-3">
+                <div class="icon-hand-scissors"></div>
+              </a>
             </li>
           </ul>
         </div>
       </div>
 
       <div id="mensagem">Mensagens</div>
+      <div id="reiniciar">Para reiniciar o jogo, recarregue a página!</div>
     </div>
 
     <script>
@@ -269,7 +293,7 @@
           deselecionar('computador', computadorEscolha)
 
           mensagem(jogadorNome + ' jogue novamente!!')
-        }, 2000)
+        }, 3000)
       }
 
       document.getElementById('jogador-escolha-1').onclick = function () {
